@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:showIn="navigation_view">
+
+  <group android:checkableBehavior="single">
+    <item
+      android:id="@+id/nav_personalAccount"
+      android:icon="@drawable/ic_menu_personalAccount"
+      android:title="Личный кабинет" />
+    <item
+      android:id="@+id/nav_order"
+      android:icon="@drawable/ic_menu_personalAccount"
+      android:title="Мои заказы" />
+    <item
+      android:id="@+id/nav_basket"
+      android:icon="@drawable/ic_menu_basket"
+      android:title="Корзина" />
+    <item
+      android:id="@+id/nav_laying"
+      android:icon="@drawable/ic_menu_laying"
+      android:title="Закладки" />
+    <item
+      android:id="@+id/nav_search"
+      android:icon="@drawable/ic_menu_search"
+      android:title="Поиск" />
+    <item
+      android:id="@+id/nav_discount"
+      android:icon="@drawable/ic_menu_discount"
+      android:title="Персональная скидка" />
+  </group>
+      <item
+        android:id="@+id/nav_help"
+        android:icon="@drawable/ic_menu_discount"
+        android:title="Помощь" />
+      <item
+        android:id="@+id/nav_developer"
+        android:icon="@drawable/ic_menu_discount"
+        android:title="Связаться с разработчиком" />
+</menu>
