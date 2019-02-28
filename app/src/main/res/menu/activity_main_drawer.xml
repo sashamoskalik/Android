@@ -6,35 +6,35 @@
   <group android:checkableBehavior="single">
     <item
       android:id="@+id/nav_personalAccount"
-      android:icon="@drawable/ic_menu_personalAccount"
+      android:icon="@drawable/ic_person_black_24dp"
       android:title="Личный кабинет" />
     <item
       android:id="@+id/nav_order"
-      android:icon="@drawable/ic_menu_personalAccount"
+      android:icon="@drawable/ic_shop_black_24dp"
       android:title="Мои заказы" />
     <item
       android:id="@+id/nav_basket"
-      android:icon="@drawable/ic_menu_basket"
+      android:icon="@drawable/ic_shopping_cart_black_24dp"
       android:title="Корзина" />
     <item
       android:id="@+id/nav_laying"
-      android:icon="@drawable/ic_menu_laying"
+      android:icon="@drawable/ic_star_black_24dp"
       android:title="Закладки" />
     <item
       android:id="@+id/nav_search"
-      android:icon="@drawable/ic_menu_search"
+      android:icon="@drawable/ic_search_black_24dp"
       android:title="Поиск" />
     <item
       android:id="@+id/nav_discount"
-      android:icon="@drawable/ic_menu_discount"
+      android:icon="@drawable/ic_monetization_on_black_24dp"
       android:title="Персональная скидка" />
   </group>
       <item
         android:id="@+id/nav_help"
-        android:icon="@drawable/ic_menu_discount"
+        android:icon="@drawable/ic_help_black_24dp"
         android:title="Помощь" />
       <item
         android:id="@+id/nav_developer"
-        android:icon="@drawable/ic_menu_discount"
+        android:icon="@drawable/ic_import_export_black_24dp"
         android:title="Связаться с разработчиком" />
 </menu>
