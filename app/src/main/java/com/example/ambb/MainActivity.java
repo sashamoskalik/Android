@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity
     int id = item.getItemId();
 
     if (id == R.id.nav_personalAccount) {
-      Intent intent = new Intent(this, LoginActivity.class);
-      startActivity(intent);// Handle the camera action
+      Intent intent = new Intent(this, RegistrationActivity.class);
+      startActivity(intent);
     } else if (id == R.id.nav_order) {
 
     } else if (id == R.id.nav_basket) {
