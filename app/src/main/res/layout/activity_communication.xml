@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".CommunicationActivity">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:orientation="vertical">
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="20sp"
+      android:text="Topic:"
+      />
+    <EditText
+      android:id="@+id/topicCommunication"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      />
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="20sp"
+      android:text="Text:"
+      />
+    <EditText
+      android:id="@+id/textCommunication"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      />
+    <Button
+      android:id="@+id/buttonCommunication"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="Send comment"
+      />
+  </LinearLayout>
+</android.support.constraint.ConstraintLayout>
