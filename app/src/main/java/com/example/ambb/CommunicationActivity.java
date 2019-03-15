@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CommunicationActivity extends AppCompatActivity {
 
@@ -22,7 +23,8 @@ public class CommunicationActivity extends AppCompatActivity {
     buttonCommunication = (Button) findViewById(R.id.buttonCommunication);
     buttonCommunication.setOnClickListener(new View.OnClickListener() {
       @Override
-      public void onClick(View v) {
+      public void onClick(View view) {
+
         String topic = topicCommunication.getText().toString();
         String text = textCommunication.getText().toString();
 
@@ -34,6 +36,10 @@ public class CommunicationActivity extends AppCompatActivity {
         comment.setType("message/rfc822");
 
         startActivity(Intent.createChooser(comment, "Choose email: "));
+
+        Toast toast = Toast.makeText(getApplicationContext(), "Спасибо, вы сделали приложение лучше!",Toast.LENGTH_LONG);
+        toast.show();
+
       }
     });
   }
