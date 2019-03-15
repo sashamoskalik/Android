@@ -15,9 +15,16 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="GoogleAppIndexingWarning">
-    <activity android:name=".HelpActivity"></activity>
-    <activity android:name=".CommunicationActivity" />
-    <activity android:name=".RegistrationActivity" />
+    <activity android:name=".PersonalSaleActivity"></activity>
+    <activity
+      android:name=".HelpActivity"
+      android:label="Помощь" />
+    <activity
+      android:name=".CommunicationActivity"
+      android:label="Связаться с разработчиком" />
+    <activity
+      android:name=".RegistrationActivity"
+      android:label="Личный кабинет" />
     <activity
       android:name=".MainActivity"
       android:icon="@drawable/ic_launcher_round"

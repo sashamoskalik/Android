@@ -87,7 +87,8 @@ public class MainActivity extends AppCompatActivity
     } else if (id == R.id.nav_search) {
 
     } else if (id == R.id.nav_discount) {
-
+      Intent intent = new Intent(this, PersonalSaleActivity.class);
+      startActivity(intent);
     } else if (id == R.id.nav_help){
       Intent intent = new Intent(this, HelpActivity.class);
       startActivity(intent);

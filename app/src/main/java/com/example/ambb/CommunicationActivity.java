@@ -1,5 +1,6 @@
 package com.example.ambb;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ public class CommunicationActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_communication);
+
 
     topicCommunication = (EditText) findViewById(R.id.topicCommunication);
     textCommunication = (EditText) findViewById(R.id.textCommunication);
