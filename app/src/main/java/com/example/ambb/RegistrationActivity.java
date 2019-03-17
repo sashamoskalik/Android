@@ -23,7 +23,6 @@ public class RegistrationActivity extends AppCompatActivity {
     login = (EditText) findViewById(R.id.login);
     password = (EditText) findViewById(R.id.password);
 
-    dbHelper = new DBHelper(this);
 
     buttonRegistration = (Button) findViewById(R.id.buttonRegistration);
 
@@ -33,17 +32,11 @@ public class RegistrationActivity extends AppCompatActivity {
         String onlogin = login.getText().toString();
         String onpassword = password.getText().toString();
 
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
 
         switch (view.getId()){
           case R.id.buttonRegistration:
             //Log.d("hello", "hello");
 
-            contentValues.put(DBHelper.KEY_Login, onlogin);
-            contentValues.put(DBHelper.KEY_PASSWORD, onpassword);
-
-            database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
             break;
         }
       }

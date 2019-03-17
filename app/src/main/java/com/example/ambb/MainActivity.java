@@ -17,12 +17,16 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
   implements NavigationView.OnNavigationItemSelectedListener {
 
+  DBHelper dbHelper;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
+
+    dbHelper = new DBHelper(this);
 
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

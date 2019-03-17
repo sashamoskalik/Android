@@ -4,8 +4,8 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/ambb/CommunicationActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/ambb/DBHelper.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gradle.properties" charset="UTF-8" />
-    <file url="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/huawei-eml_l29-UBV7N18412007498/data/data/com.example.ambb/databases/contactDB-wal" charset="US-ASCII" />
-    <file url="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/huawei-eml_l29-UBV7N18412007498/data/data/com.example.ambb/databases/contactdb" charset="windows-1251" />
+    <file url="file://$USER_HOME$/MyApplication2/gradle.properties" charset="UTF-8" />
+    <file url="file://$USER_HOME$/MyApplication2/local.properties" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
