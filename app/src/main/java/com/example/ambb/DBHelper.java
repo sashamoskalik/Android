@@ -1,6 +1,7 @@
 package com.example.ambb;
 
 import android.content.Context;
+import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -16,7 +17,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
   public DBHelper(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    SQLiteDatabase db = this.getWritableDatabase();
   }
 
   @Override

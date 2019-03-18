@@ -15,6 +15,8 @@ public class RegistrationActivity extends AppCompatActivity {
   EditText login, password;
 
   DBHelper dbHelper;
+
+  final String LOG_TAG = "myLogs";
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -22,6 +24,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
     login = (EditText) findViewById(R.id.login);
     password = (EditText) findViewById(R.id.password);
+
+    dbHelper = new DBHelper(this);
 
 
     buttonRegistration = (Button) findViewById(R.id.buttonRegistration);
@@ -32,10 +36,20 @@ public class RegistrationActivity extends AppCompatActivity {
         String onlogin = login.getText().toString();
         String onpassword = password.getText().toString();
 
+        ContentValues contentValues = new ContentValues();
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         switch (view.getId()){
           case R.id.buttonRegistration:
-            //Log.d("hello", "hello");
+            Log.d("hello", "hello");
+
+            contentValues.put("login", onlogin);
+            contentValues.put("password", onpassword);
+
+            long rowID = db.insert("Contacts", null, contentValues);
+            Log.d(LOG_TAG, "row inserted, ID" + rowID);
+            Log.d(LOG_TAG, "login and password, " + contentValues);
 
             break;
         }
