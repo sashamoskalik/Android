@@ -13,23 +13,41 @@
   android:paddingTop="@dimen/activity_vertical_margin"
   android:paddingRight="@dimen/activity_horizontal_margin"
   android:paddingBottom="@dimen/activity_vertical_margin">
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Регистрация"
+    android:textSize="25sp"
+    android:textColor="@color/colorBlack"/>
   <EditText
-    android:id="@+id/login"
+    android:id="@+id/nick"
+    android:layout_marginTop="15dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Login"
+    android:hint="Ваш никнейм"
     />
+  <EditText
+    android:id="@+id/email"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Ваш e-mail"/>
   <EditText
     android:id="@+id/password"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Password"
+    android:hint="Придумайте пароль"
     />
+  <EditText
+    android:id="@+id/returnPassword"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Повторите пароль"/>
   <Button
     android:id="@+id/buttonRegistration"
+    android:layout_marginTop="15dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Registration"
+    android:text="Зарегистрироваться"
     />
 </LinearLayout>
 </android.support.constraint.ConstraintLayout>
