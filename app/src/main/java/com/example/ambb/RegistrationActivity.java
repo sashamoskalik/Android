@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -42,7 +43,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
         switch (view.getId()){
           case R.id.buttonRegistration:
-            Log.d("hello", "hello");
 
             contentValues.put("login", onlogin);
             contentValues.put("password", onpassword);
@@ -51,8 +51,13 @@ public class RegistrationActivity extends AppCompatActivity {
             Log.d(LOG_TAG, "row inserted, ID" + rowID);
             Log.d(LOG_TAG, "login and password, " + contentValues);
 
+            Toast reg = Toast.makeText(getApplicationContext(), "Спасибо за регистрацию", Toast.LENGTH_LONG);
+            reg.show();
+
             break;
         }
+        login.setText("");
+        password.setText("");
       }
     };
     buttonRegistration.setOnClickListener(textViewClickListener);

@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
     int id = item.getItemId();
 
     if (id == R.id.nav_personalAccount) {
-      Intent intent = new Intent(this, RegistrationActivity.class);
+      Intent intent = new Intent(this, EnterActivity.class);
       startActivity(intent);
     } else if (id == R.id.nav_order) {
 

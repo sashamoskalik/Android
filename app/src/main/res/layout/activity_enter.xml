@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".EnterActivity">
+<LinearLayout
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:layout_margin="15dp" >
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Вход"
+    android:textSize="25sp"
+    android:textColor="@color/colorBlack"/>
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:text="Вход через ник, e-mail"
+    android:textSize="15sp"
+    android:textColor="@color/colorBlack"/>
+  <EditText
+    android:id="@+id/email"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:hint="Ник или e-mail"
+    android:textColor="@color/colorPrimary"/>
+  <EditText
+    android:id="@+id/password"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Пароль"
+    android:textColor="@color/colorPrimary"/>
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp">
+  <Button
+    android:id="@+id/buttonEnter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Войти"/>
+    <Button
+      android:id="@+id/buttonEnterRegistration"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Зарегистрироваться"/>
+  </LinearLayout>
+</LinearLayout>
+</android.support.constraint.ConstraintLayout>
