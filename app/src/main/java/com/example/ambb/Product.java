@@ -17,13 +17,13 @@ public class Product {
 
   public static final Product[] product = {
     new Product("Huawei P20", "black", "jbdbchsb, sdvsdvs, vdsvsdv, dsvdvsd, sdvsdv, m dmndjvnjdv",
-      "1100", R.drawable.p20),
+      "Цена: " + "1100" + " руб", R.drawable.p20),
     new Product("Huawei P10", "black", "bchsbhbs,cnasjncaj,cncajs,cnasjcna,ncasjcn, vsjvnsjdvnjs,vndsjnvjsdv,kvnsdjvnsjd",
-      "900", R.drawable.p10),
-    new Product("Huawei P10", "black", "bchsbhbs,cnasjncaj,cncajs,cnasjcna,ncasjcn, vsjvnsjdvnjs,vndsjnvjsdv,kvnsdjvnsjd",
-      "900", R.drawable.p10),
-    new Product("Huawei P10", "black", "bchsbhbs,cnasjncaj,cncajs,cnasjcna,ncasjcn, vsjvnsjdvnjs,vndsjnvjsdv,kvnsdjvnsjd",
-      "900", R.drawable.p10)
+      "Цена: " + "900" + " руб", R.drawable.p10),
+    new Product("Apple Iphone X", "black", "bchsbhbs,cnasjncaj,cncajs,cnasjcna,ncasjcn, vsjvnsjdvnjs,vndsjnvjsdv,kvnsdjvnsjd",
+       "Цена: " + "1900" + " руб", R.drawable.iphone10),
+    new Product("Xiaomi Redmi 6A", "black", "bchsbhbs,cnasjncaj,cncajs,cnasjcna,ncasjcn, vsjvnsjdvnjs,vndsjnvjsdv,kvnsdjvnsjd",
+      "Цена: " + "200" + " руб", R.drawable.xiaomi_redmi_6a)
   };
 
   public String getName() {

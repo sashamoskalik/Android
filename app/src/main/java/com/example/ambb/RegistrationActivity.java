@@ -96,6 +96,9 @@ public class RegistrationActivity extends AppCompatActivity {
             Toast reg = Toast.makeText(getApplicationContext(), "Спасибо за регистрацию", Toast.LENGTH_LONG);
             reg.show();
 
+            Intent intent = new Intent(RegistrationActivity.this, PersonalAccountActivity.class);
+            startActivity(intent);
+
 
             Intent send = new Intent(Intent.ACTION_SEND);
             send.putExtra(Intent.EXTRA_EMAIL, regEmail);
