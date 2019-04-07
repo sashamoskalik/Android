@@ -7,6 +7,7 @@ public class Product {
   private String price;
   private int picture;
 
+
   public Product(String name, String color, String description, String price, int picture) {
     this.name = name;
     this.color = color;
