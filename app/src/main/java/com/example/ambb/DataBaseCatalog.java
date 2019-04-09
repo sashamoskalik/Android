@@ -10,7 +10,7 @@ public class DataBaseCatalog extends SQLiteOpenHelper {
   final String LOG_TAG = "myLogs";
 
   public static final String DATABASE_NAME = "DataCatalog.db";
-  public static final int DATABASE_VERSION = 2;
+  public static final int DATABASE_VERSION = 6;
   public static final String TABLE_NAME = "Catalog";
 
   public static final String KEY_ID = "ID";
@@ -28,15 +28,15 @@ public class DataBaseCatalog extends SQLiteOpenHelper {
 
   @Override
   public void onCreate(SQLiteDatabase db) {
-    db.execSQL("CREATE TABLE " + TABLE_NAME + " ( ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, COLOR TEXT, DESCRIPTION TEXT, PRICE TEXT, PICTURE TEXT  )");
-    insertCatalog(db, "Huawei P20", "black", "jbdbchsb, sdvsdvs, vdsvsdv, dsvdvsd, sdvsdv, m dmndjvnjdv",
-      "1100", R.drawable.p20);
-    insertCatalog(db,"Huawei P10", "black", "bchsbhbs,cnasjncaj,cncajs,cnasjcna,ncasjcn, vsjvnsjdvnjs,vndsjnvjsdv,kvnsdjvnsjd",
-      "900", R.drawable.p10);
-    insertCatalog(db, "Apple Iphone X", "black", "bchsbhbs,cnasjncaj,cncajs,cnasjcna,ncasjcn, vsjvnsjdvnjs,vndsjnvjsdv,kvnsdjvnsjd",
-      "1900", R.drawable.iphone10);
-    insertCatalog(db, "Xiaomi Redmi 6A", "black", "bchsbhbs,cnasjncaj,cncajs,cnasjcna,ncasjcn, vsjvnsjdvnjs,vndsjnvjsdv,kvnsdjvnsjd",
-      "200", R.drawable.xiaomi_redmi_6a);
+    db.execSQL("CREATE TABLE " + TABLE_NAME + " ( ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, COLOR TEXT, DESCRIPTION TEXT, PRICE Text, PICTURE INTEGER  )");
+    insertCatalog(db, "Huawei P20", "black", "Android, экран 5,8 IPS, (1080x2244), HiSilicon Kirin 970, ОЗУ 4 ГБ, камера 12 Мп",
+      "от " + "1100,00" + " руб", R.drawable.p20);
+    insertCatalog(db,"Huawei P10", "black", "Android, экран 5,1 IPS, (1080x1920), HiSilicon Kirin 960, ОЗУ 4 ГБ, камера 12 Мп",
+      "от " + "900,00" + " руб", R.drawable.p10);
+    insertCatalog(db, "Apple Iphone X", "black", "Apple iOS, экран 5,8 AMOLED, (1125x2436), Apple A11 Bionic, ОЗУ 3 ГБ, камера 12 Мп",
+      "от " + "1900,00" + " руб", R.drawable.iphone10);
+    insertCatalog(db, "Xiaomi Redmi 6A", "black", "Android, экран 5,45 IPS, (720x1440), MediaTek Helio A22, ОЗУ 2 ГБ, камера 13 Мп",
+      "от " + "200,00" + " руб", R.drawable.xiaomi_redmi_6a);
   }
 
   @Override

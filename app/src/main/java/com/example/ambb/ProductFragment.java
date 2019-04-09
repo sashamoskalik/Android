@@ -32,48 +32,68 @@ public class ProductFragment extends Fragment {
     Log.d("Hello", "hello");
     RecyclerView productRecycler = (RecyclerView) inflater.inflate(R.layout.fragment_product, container, false);
 
-    /*if (cursor.moveToFirst()) {
+    if (cursor.moveToFirst()) {
       int nameIndex = cursor.getColumnIndex(DataBaseCatalog.KEY_NAME);
       int colorIndex = cursor.getColumnIndex(DataBaseCatalog.KEY_COLOR);
       int descriptionIndex = cursor.getColumnIndex(DataBaseCatalog.KEY_DESCRIPTION);
       int priceIndex = cursor.getColumnIndex(DataBaseCatalog.KEY_PRICE);
       int pictureIndex = cursor.getColumnIndex(DataBaseCatalog.KEY_PICTURE);
-      String[] productName = new String[cursor.getCount()];
+
+      String[] productName = new String[4];
+
+      int i =0;
       do {
-        int i = 0;
+        Log.d("product","2");
         productName[i] = cursor.getString(nameIndex);
         i++;
-        Log.d("i", String.valueOf(i));
+        Log.d("Pro","ee" + productName);
       }
       while (cursor.moveToNext());
-      for (int i = 0; i < productName.length; i++) {
-        productName[i] = Product.product[i].getName();*/
 
-    String[] productName = new String[Product.product.length];
-    for (int i = 0; i < productName.length; i++) {
-      productName[i] = Product.product[i].getName();
-    }
-    String[] productColor = new String[Product.product.length];
-    for (int i = 0; i < productColor.length; i++) {
-      productColor[i] = Product.product[i].getColor();
-    }
-    String[] productDescription = new String[Product.product.length];
-    for (int i = 0; i < productDescription.length; i++) {
-      productDescription[i] = Product.product[i].getDescription();
-    }
-    String[] productPrice = new String[Product.product.length];
-    for (int i = 0; i < productPrice.length; i++) {
-      productPrice[i] = Product.product[i].getPrice();
-    }
-    int[] productPicture = new int[Product.product.length];
-    for (int i = 0; i < productPicture.length; i++) {
-      productPicture[i] = Product.product[i].getPicture();
-    }
 
-    Adapter adapter = new Adapter(productName, productColor, productDescription, productPrice, productPicture);
-    productRecycler.setAdapter(adapter);
-    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-    productRecycler.setLayoutManager(layoutManager);
+      String[] productColor = new String[4];
+      cursor.moveToFirst();
+      i = 0;
+      do {
+        productColor[i] = cursor.getString(colorIndex);
+        i++;
+      }
+      while (cursor.moveToNext());
+
+      String[] productDescription = new String[4];
+      cursor.moveToFirst();
+      i = 0;
+      do {
+        productDescription[i] = cursor.getString(descriptionIndex);
+        i++;
+      }
+      while (cursor.moveToNext());
+
+
+      String[] productPrice = new String[4];
+      cursor.moveToFirst();
+      i = 0;
+      do {
+        productPrice[i] = cursor.getString(priceIndex);
+        i++;
+      }
+      while (cursor.moveToNext());
+
+
+      int[] productPicture = new int[4];
+      cursor.moveToFirst();
+      i = 0;
+      do {
+        productPicture[i] = cursor.getInt(5);
+        i++;
+      }
+      while (cursor.moveToNext());
+
+      Adapter adapter = new Adapter(productName, productColor, productDescription, productPrice, productPicture);
+      productRecycler.setAdapter(adapter);
+      LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+      productRecycler.setLayoutManager(layoutManager);
+    }
     return productRecycler;
-    }
+  }
 }
