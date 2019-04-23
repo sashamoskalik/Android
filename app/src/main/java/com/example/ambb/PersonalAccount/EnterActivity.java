@@ -1,9 +1,8 @@
-package com.example.ambb;
+package com.example.ambb.PersonalAccount;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.ConditionVariable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.ambb.DataBase.DBHelper;
+import com.example.ambb.R;
 
 public class EnterActivity extends AppCompatActivity {
   Button buttonEnter, buttonEnterRegistration;

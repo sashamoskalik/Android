@@ -1,4 +1,4 @@
-package com.example.ambb;
+package com.example.ambb.DataBase;
 
 import android.content.Context;
 import android.database.DatabaseErrorHandler;

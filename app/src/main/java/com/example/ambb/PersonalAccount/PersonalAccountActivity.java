@@ -1,16 +1,15 @@
-package com.example.ambb;
+package com.example.ambb.PersonalAccount;
 
-import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toolbar;
 
-public class HelpActivity extends AppCompatActivity {
+import com.example.ambb.R;
+
+public class PersonalAccountActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_help);
-
+    setContentView(R.layout.activity_personal_account);
   }
 }
