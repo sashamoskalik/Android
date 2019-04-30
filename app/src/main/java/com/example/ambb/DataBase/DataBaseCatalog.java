@@ -12,7 +12,7 @@ public class DataBaseCatalog extends SQLiteOpenHelper {
   final String LOG_TAG = "myLogs";
 
   public static final String DATABASE_NAME = "DataCatalog.db";
-  public static final int DATABASE_VERSION = 7;
+  public static final int DATABASE_VERSION = 9;
   public static final String TABLE_NAME = "Catalog";
 
   public static final String KEY_ID = "ID";
@@ -31,7 +31,7 @@ public class DataBaseCatalog extends SQLiteOpenHelper {
   @Override
   public void onCreate(SQLiteDatabase db) {
     db.execSQL("CREATE TABLE " + TABLE_NAME + " ( ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, COLOR TEXT, DESCRIPTION TEXT, PRICE Text, PICTURE INTEGER  )");
-    insertCatalog(db, "Huawei", "black", "Android, экран 5,8 IPS, (1080x2244), HiSilicon Kirin 970, ОЗУ 4 ГБ, камера 12 Мп",
+    insertCatalog(db, "Huawei P20", "black", "Android, экран 5,8 IPS, (1080x2244), HiSilicon Kirin 970, ОЗУ 4 ГБ, камера 12 Мп",
       "от " + "1100,00" + " руб", R.drawable.p20);
     insertCatalog(db,"Huawei P10", "black", "Android, экран 5,1 IPS, (1080x1920), HiSilicon Kirin 960, ОЗУ 4 ГБ, камера 12 Мп",
       "от " + "900,00" + " руб", R.drawable.p10);

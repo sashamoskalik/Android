@@ -1,4 +1,6 @@
-package com.example.ambb.SearchView;
+package com.example.ambb.Search;
+
+import com.example.ambb.Search.AndroidVersion;
 
 public class JSONResponse {
   private AndroidVersion[] android;

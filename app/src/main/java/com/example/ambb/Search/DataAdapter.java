@@ -1,4 +1,4 @@
-package com.example.ambb.SearchView;
+package com.example.ambb.Search;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -32,8 +32,9 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
   public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, int i) {
 
     viewHolder.tv_name.setText(mFilteredList.get(i).getName());
-    viewHolder.tv_version.setText(mFilteredList.get(i).getVer());
-    viewHolder.tv_api_level.setText(mFilteredList.get(i).getApi());
+    viewHolder.tv_color.setText(mFilteredList.get(i).getColor());
+    viewHolder.tv_description.setText(mFilteredList.get(i).getDescription());
+    viewHolder.tv_price.setText(mFilteredList.get(i).getPrice());
   }
 
   @Override
@@ -59,7 +60,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
 
           for (AndroidVersion androidVersion : mArrayList) {
 
-            if (androidVersion.getApi().toLowerCase().contains(charString) || androidVersion.getName().toLowerCase().contains(charString) || androidVersion.getVer().toLowerCase().contains(charString)) {
+            if (androidVersion.getDescription().toLowerCase().contains(charString) || androidVersion.getName().toLowerCase().contains(charString) || androidVersion.getColor().toLowerCase().contains(charString) || androidVersion.getPrice().toLowerCase().contains(charString)) {
 
               filteredList.add(androidVersion);
             }
@@ -82,14 +83,14 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
   }
 
   public class ViewHolder extends RecyclerView.ViewHolder{
-    private TextView tv_name,tv_version,tv_api_level;
+    private TextView tv_name,tv_color,tv_description, tv_price;
     public ViewHolder(View view) {
       super(view);
 
       tv_name = (TextView)view.findViewById(R.id.tv_name);
-      tv_version = (TextView)view.findViewById(R.id.tv_version);
-      tv_api_level = (TextView)view.findViewById(R.id.tv_api_level);
-
+      tv_color = (TextView)view.findViewById(R.id.tv_color);
+      tv_description = (TextView)view.findViewById(R.id.tv_description);
+      tv_price = (TextView)view.findViewById(R.id.tv_price);
     }
   }
 

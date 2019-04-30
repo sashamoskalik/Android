@@ -1,12 +1,14 @@
-package com.example.ambb.SearchView;
+package com.example.ambb.Search;
 
+
+import com.example.ambb.Search.JSONResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface RequestInterface {
 
-  @GET("android/jsonandroid")
+  @GET("bins/lwn3s")
   Call<JSONResponse> getJSON();
 }
 
