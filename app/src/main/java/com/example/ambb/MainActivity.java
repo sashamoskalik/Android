@@ -101,9 +101,9 @@ public class MainActivity extends AppCompatActivity
     } else if (id == R.id.nav_basket) {
 
     } else if (id == R.id.nav_laying) {
-
+      Intent intent = new Intent(this, FavoriteActivity.class);
+      startActivity(intent);
     } else if (id == R.id.nav_search) {
-
       Intent intent = new Intent(this, SearchActivity.class);
       startActivity(intent);
     } else if (id == R.id.nav_discount) {

@@ -16,13 +16,17 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="GoogleAppIndexingWarning">
-    <activity android:name=".ProductDetailActivity"
+    <activity android:name=".FavoriteActivity"
+      android:label="Закладки"
       android:parentActivityName=".MainActivity">
     </activity>
-    <activity android:name=".Search.SearchActivity"
+    <activity
+      android:name=".ProductDetailActivity"
+      android:parentActivityName=".MainActivity"></activity>
+    <activity
+      android:name=".Search.SearchActivity"
       android:label="Поиск"
-      android:parentActivityName=".MainActivity">
-    </activity>
+      android:parentActivityName=".MainActivity"></activity>
     <activity android:name=".PersonalAccount.PersonalAccountActivity" />
     <activity
       android:name=".PersonalAccount.EnterActivity"
@@ -42,21 +46,22 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name=".MenuActivity.PersonalSaleActivity"
-      android:parentActivityName=".MainActivity"
-      android:label="Скидка"/>
+    <activity
+      android:name=".MenuActivity.PersonalSaleActivity"
+      android:label="Скидка"
+      android:parentActivityName=".MainActivity" />
     <activity
       android:name=".MenuActivity.HelpActivity"
       android:label="Помощь"
-      android:parentActivityName=".MainActivity"/>
+      android:parentActivityName=".MainActivity" />
     <activity
       android:name=".MenuActivity.CommunicationActivity"
       android:label="Связаться с разработчиком"
-      android:parentActivityName=".MainActivity"/>
+      android:parentActivityName=".MainActivity" />
     <activity
       android:name=".PersonalAccount.RegistrationActivity"
-      android:parentActivityName=".PersonalAccount.EnterActivity"
-      android:label="Регистрация" />
+      android:label="Регистрация"
+      android:parentActivityName=".PersonalAccount.EnterActivity" />
     <activity
       android:name=".MainActivity"
       android:label="@string/app_name"
