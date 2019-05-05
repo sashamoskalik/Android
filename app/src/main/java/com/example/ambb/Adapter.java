@@ -1,6 +1,7 @@
 package com.example.ambb;
 
 import android.graphics.drawable.Drawable;
+import android.net.sip.SipSession;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
@@ -20,6 +21,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
   private String[] arrayDescription;
   private String[] arrayPrice;
   private int[] arrayPicture;
+  private Listener listener;
+
+  interface Listener {
+    void onClick(int position);
+  }
 
   public Adapter(String[] arrayName, String[] arrayColor, String[] arrayDescription, String[] arrayPrice, int[] arrayPicture) {
     this.arrayName = arrayName;
@@ -36,25 +42,38 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
   }
 
   @Override
-  public void onBindViewHolder(ViewHolder viewHolder, int i) {
+  public void onBindViewHolder(ViewHolder viewHolder, final int position) {
     CardView cardView = viewHolder.cardView;
     ImageView imageView = (ImageView) cardView.findViewById(R.id.infoPicture);
-    Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), arrayPicture[i]);
+    Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), arrayPicture[position]);
     imageView.setImageDrawable(drawable);
-    imageView.setContentDescription(arrayName[i]);
+    imageView.setContentDescription(arrayName[position]);
     TextView textName = (TextView) cardView.findViewById(R.id.infoName);
-    textName.setText(arrayName[i]);
+    textName.setText(arrayName[position]);
     TextView textColor = (TextView) cardView.findViewById(R.id.infoColor);
-    textColor.setText(arrayColor[i]);
+    textColor.setText(arrayColor[position]);
     TextView textDescription = (TextView) cardView.findViewById(R.id.infoDescription);
-    textDescription.setText(arrayDescription[i]);
+    textDescription.setText(arrayDescription[position]);
     TextView textPrice = (TextView) cardView.findViewById(R.id.infoPrice);
-    textPrice.setText(arrayPrice[i]);
+    textPrice.setText(arrayPrice[position]);
+
+    cardView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (listener != null){
+          listener.onClick(position);
+        }
+      }
+    });
   }
 
   @Override
   public int getItemCount() {
     return arrayName.length;
+  }
+
+  public void setListener(Listener listener){
+    this.listener = listener;
   }
 
   public static class ViewHolder extends RecyclerView.ViewHolder {

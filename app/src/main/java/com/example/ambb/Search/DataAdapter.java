@@ -2,6 +2,7 @@ package com.example.ambb.Search;
 
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
     viewHolder.tv_color.setText(mFilteredList.get(i).getColor());
     viewHolder.tv_description.setText(mFilteredList.get(i).getDescription());
     viewHolder.tv_price.setText(mFilteredList.get(i).getPrice());
+    Log.d("Holder", "holder" + viewHolder.tv_name.getText().toString());
   }
 
   @Override

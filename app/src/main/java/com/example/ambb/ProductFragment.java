@@ -1,5 +1,6 @@
 package com.example.ambb;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -91,6 +92,15 @@ public class ProductFragment extends Fragment {
       productRecycler.setAdapter(adapter);
       LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
       productRecycler.setLayoutManager(layoutManager);
+
+      adapter.setListener(new Adapter.Listener() {
+        @Override
+        public void onClick(int position) {
+          Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+          intent.putExtra(ProductDetailActivity.EXTRA_MOBILE_ID, position);
+          getActivity().startActivity(intent);
+        }
+      });
     }
     return productRecycler;
   }
