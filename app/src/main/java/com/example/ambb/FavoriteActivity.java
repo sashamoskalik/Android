@@ -1,5 +1,6 @@
 package com.example.ambb;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.view.MenuItemCompat;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ public class FavoriteActivity extends AppCompatActivity {
   SimpleCursorAdapter simpleCursor;
   SQLiteDatabase db;
   Cursor cursor;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -65,12 +68,15 @@ public class FavoriteActivity extends AppCompatActivity {
     //noinspection SimplifiableIfStatement
     if (id == R.id.delete) {
       db.delete("Favorite", null, null);
-      Toast toast = Toast.makeText(getApplicationContext(), "delete", Toast.LENGTH_LONG);
+      Intent intent = new Intent(this, MainActivity.class);
+      startActivity(intent);
+      Toast toast = Toast.makeText(getApplicationContext(), "Вы удалили все закладки", Toast.LENGTH_LONG);
       toast.show();
     }
 
     return super.onOptionsItemSelected(item);
   }
+
 
 
 

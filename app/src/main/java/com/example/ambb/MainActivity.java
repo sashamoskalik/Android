@@ -18,6 +18,7 @@ package com.example.ambb;
   import android.view.Menu;
   import android.view.MenuItem;
   import android.view.ViewGroup;
+  import android.widget.Toast;
 
   import com.example.ambb.DataBase.DBHelper;
   import com.example.ambb.MenuActivity.CommunicationActivity;
@@ -51,6 +52,14 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
 
+    FloatingActionButton fab = findViewById(R.id.fab);
+    fab.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(MainActivity.this, FABActivity.class);
+        startActivity(intent);
+      }
+    });
 
   }
 

@@ -16,17 +16,20 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="GoogleAppIndexingWarning">
-    <activity android:name=".FavoriteActivity"
+    <activity android:name=".FABActivity"
+      android:label="Сортировка"
+      android:parentActivityName=".MainActivity"></activity>
+    <activity
+      android:name=".FavoriteActivity"
       android:label="Закладки"
-      android:parentActivityName=".MainActivity">
-    </activity>
+      android:parentActivityName=".MainActivity"></activity>
     <activity
       android:name=".ProductDetailActivity"
-      android:parentActivityName=".MainActivity"></activity>
+      android:parentActivityName=".MainActivity" />
     <activity
       android:name=".Search.SearchActivity"
       android:label="Поиск"
-      android:parentActivityName=".MainActivity"></activity>
+      android:parentActivityName=".MainActivity" />
     <activity android:name=".PersonalAccount.PersonalAccountActivity" />
     <activity
       android:name=".PersonalAccount.EnterActivity"
