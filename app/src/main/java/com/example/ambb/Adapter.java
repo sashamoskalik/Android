@@ -19,7 +19,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
   private String[] arrayName;
   private String[] arrayColor;
   private String[] arrayDescription;
-  private String[] arrayPrice;
+  private int[] arrayPrice;
   private int[] arrayPicture;
   private Listener listener;
 
@@ -27,7 +27,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     void onClick(int position);
   }
 
-  public Adapter(String[] arrayName, String[] arrayColor, String[] arrayDescription, String[] arrayPrice, int[] arrayPicture) {
+  public Adapter(String[] arrayName, String[] arrayColor, String[] arrayDescription, int[] arrayPrice, int[] arrayPicture) {
     this.arrayName = arrayName;
     this.arrayColor = arrayColor;
     this.arrayDescription = arrayDescription;
@@ -55,7 +55,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     TextView textDescription = (TextView) cardView.findViewById(R.id.infoDescription);
     textDescription.setText(arrayDescription[position]);
     TextView textPrice = (TextView) cardView.findViewById(R.id.infoPrice);
-    textPrice.setText(arrayPrice[position]);
+    textPrice.setText("от " + String.valueOf(arrayPrice[position] + " руб."));
 
     cardView.setOnClickListener(new View.OnClickListener() {
       @Override

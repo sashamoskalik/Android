@@ -3,11 +3,7 @@ package com.example.ambb;
   import android.content.Intent;
   import android.os.Bundle;
   import android.support.design.widget.FloatingActionButton;
-  import android.support.design.widget.Snackbar;
-  import android.support.v7.widget.LinearLayoutManager;
-  import android.support.v7.widget.RecyclerView;
   import android.util.Log;
-  import android.view.LayoutInflater;
   import android.view.View;
   import android.support.design.widget.NavigationView;
   import android.support.v4.view.GravityCompat;
@@ -17,11 +13,10 @@ package com.example.ambb;
   import android.support.v7.widget.Toolbar;
   import android.view.Menu;
   import android.view.MenuItem;
-  import android.view.ViewGroup;
-  import android.widget.Toast;
 
   import com.example.ambb.DataBase.DBHelper;
   import com.example.ambb.MenuActivity.CommunicationActivity;
+  import com.example.ambb.MenuActivity.FavoriteActivity;
   import com.example.ambb.MenuActivity.HelpActivity;
   import com.example.ambb.MenuActivity.PersonalSaleActivity;
   import com.example.ambb.PersonalAccount.EnterActivity;
@@ -108,7 +103,8 @@ public class MainActivity extends AppCompatActivity
     } else if (id == R.id.nav_order) {
 
     } else if (id == R.id.nav_basket) {
-
+      Intent intent = new Intent(this, BasketActivity.class);
+      startActivity(intent);
     } else if (id == R.id.nav_laying) {
       Intent intent = new Intent(this, FavoriteActivity.class);
       startActivity(intent);

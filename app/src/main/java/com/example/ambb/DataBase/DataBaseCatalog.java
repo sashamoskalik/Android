@@ -12,9 +12,10 @@ public class DataBaseCatalog extends SQLiteOpenHelper {
   final String LOG_TAG = "myLogs";
 
   public static final String DATABASE_NAME = "DataCatalog.db";
-  public static final int DATABASE_VERSION = 21;
+  public static final int DATABASE_VERSION = 23;
   public static final String TABLE_NAME = "Catalog";
   public static final String TABLE_FAVORITE = "Favorite";
+  public static final String TABLE_BASKET = "Basket";
 
   public static final String KEY_ID = "ID";
   public static final String KEY_NAME = "NAME";
@@ -32,27 +33,30 @@ public class DataBaseCatalog extends SQLiteOpenHelper {
 
   @Override
   public void onCreate(SQLiteDatabase db) {
-    db.execSQL("CREATE TABLE " + TABLE_NAME + " ( ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, COLOR TEXT, DESCRIPTION TEXT, PRICE Text, PICTURE INTEGER, BIGPICTURE INTEGER  )");
+    db.execSQL("CREATE TABLE " + TABLE_NAME + " ( ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, COLOR TEXT, DESCRIPTION TEXT, PRICE INTEGER, PICTURE INTEGER, BIGPICTURE INTEGER  )");
     insertCatalog(db, "Huawei P20", "black", "Android, экран 5,8 IPS, (1080x2244), HiSilicon Kirin 970, ОЗУ 4 ГБ, камера 12 Мп",
-      "1100,00" + " руб", R.drawable.p20, R.drawable.p20big);
+      1100 , R.drawable.p20, R.drawable.p20big);
     insertCatalog(db,"Huawei P10", "black", "Android, экран 5,1 IPS, (1080x1920), HiSilicon Kirin 960, ОЗУ 4 ГБ, камера 12 Мп",
-       "900,00" + " руб", R.drawable.p10, R.drawable.p10big);
+       900 , R.drawable.p10, R.drawable.p10big);
     insertCatalog(db, "Apple Iphone X", "black", "Apple iOS, экран 5,8 AMOLED, (1125x2436), Apple A11 Bionic, ОЗУ 3 ГБ, камера 12 Мп",
-      "1900,00" + " руб", R.drawable.iphone10, R.drawable.iphonexbig);
+      1900 , R.drawable.iphone10, R.drawable.iphonexbig);
     insertCatalog(db, "Xiaomi Redmi 6A", "black", "Android, экран 5,45 IPS, (720x1440), MediaTek Helio A22, ОЗУ 2 ГБ, камера 13 Мп",
-      "200,00" + " руб", R.drawable.xiaomi_redmi_6a, R.drawable.redmi6abig);
+      200 , R.drawable.xiaomi_redmi_6a, R.drawable.redmi6abig);
 
-    db.execSQL("CREATE TABLE " + TABLE_FAVORITE + " ( _id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, COLOR TEXT, DESCRIPTION TEXT, PRICE Text )");
+    db.execSQL("CREATE TABLE " + TABLE_FAVORITE + " ( _id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, COLOR TEXT, DESCRIPTION TEXT, PRICE INTEGER )");
+
+    db.execSQL("CREATE TABLE " + TABLE_BASKET + " ( _id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, COLOR TEXT, DESCRIPTION TEXT, PRICE INTEGER )");
   }
 
   @Override
   public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITE);
+    db.execSQL("DROP TABLE IF EXISTS " + TABLE_BASKET);
     onCreate(db);
   }
 
-  private static void insertCatalog (SQLiteDatabase db, String name, String color, String description, String price, int pictureId, int bigpictureId){
+  private static void insertCatalog (SQLiteDatabase db, String name, String color, String description, int price, int pictureId, int bigpictureId){
     ContentValues contentValues = new ContentValues();
     contentValues.put("NAME", name);
     contentValues.put("COLOR", color);

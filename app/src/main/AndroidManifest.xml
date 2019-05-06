@@ -16,13 +16,18 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="GoogleAppIndexingWarning">
-    <activity android:name=".FABActivity"
-      android:label="Сортировка"
+    <activity
+      android:name=".BasketActivity"
+      android:label="Корзина"
       android:parentActivityName=".MainActivity"></activity>
     <activity
-      android:name=".FavoriteActivity"
+      android:name=".FABActivity"
+      android:label="Сортировка"
+      android:parentActivityName=".MainActivity" />
+    <activity
+      android:name=".MenuActivity.FavoriteActivity"
       android:label="Закладки"
-      android:parentActivityName=".MainActivity"></activity>
+      android:parentActivityName=".MainActivity" />
     <activity
       android:name=".ProductDetailActivity"
       android:parentActivityName=".MainActivity" />

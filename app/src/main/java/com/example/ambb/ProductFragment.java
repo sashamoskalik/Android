@@ -69,11 +69,11 @@ public class ProductFragment extends Fragment {
       while (cursor.moveToNext());
 
 
-      String[] productPrice = new String[4];
+      int[] productPrice = new int[4];
       cursor.moveToFirst();
       i = 0;
       do {
-        productPrice[i] = cursor.getString(priceIndex);
+        productPrice[i] = cursor.getInt(4);
         i++;
       }
       while (cursor.moveToNext());

@@ -23,11 +23,12 @@ public class ProductDetailActivity extends AppCompatActivity {
   public static final String EXTRA_MOBILE_ID = "mobileId";
   DataBaseCatalog dataBaseCatalog;
   ImageButton imageButton;
+  Button buttonBasket;
   private int count;
   private String mobileName;
   private String mobileColor;
   private String mobileDescription;
-  private String mobilePrice;
+  private int mobilePrice;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     setContentView(R.layout.activity_product_detail);
 
     dataBaseCatalog = new DataBaseCatalog(this);
+    buttonBasket = (Button) findViewById(R.id.buttonBasket);
 
     int mobileId = (Integer) getIntent().getExtras().get(EXTRA_MOBILE_ID);
     final SQLiteDatabase db = dataBaseCatalog.getWritableDatabase();
@@ -44,7 +46,7 @@ public class ProductDetailActivity extends AppCompatActivity {
       mobileName = cursor.getString(1);
       mobileColor = cursor.getString(2);
       mobileDescription = cursor.getString(3);
-      mobilePrice = cursor.getString(4);
+      mobilePrice = cursor.getInt(4);
       int mobilePicture = cursor.getInt(6);
 
       TextView name = (TextView) findViewById(R.id.name_detail);
@@ -59,8 +61,8 @@ public class ProductDetailActivity extends AppCompatActivity {
       //TextView price = (TextView) findViewById(R.id.price_detail);
       //price.setText(mobilePrice);
 
-      Button buttonDetail = (Button) findViewById(R.id.buttonDetail);
-      buttonDetail.setText(mobilePrice);
+      buttonBasket = (Button) findViewById(R.id.buttonBasket);
+      buttonBasket.setText(String.valueOf(mobilePrice) + " руб.");
     }
 
     imageButton = (ImageButton) findViewById(R.id.favorite);
@@ -121,5 +123,22 @@ public class ProductDetailActivity extends AppCompatActivity {
       }
     };
     imageButton.setOnClickListener(star);
+
+    View.OnClickListener basket = new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("NAME", mobileName);
+        contentValues.put("COLOR", mobileColor);
+        contentValues.put("DESCRIPTION", mobileDescription);
+        contentValues.put("PRICE", mobilePrice);
+        long rowID = db.insert("Basket", null, contentValues);
+        Log.d("Row", "RowId" + rowID);
+        Toast toast = Toast.makeText(getApplicationContext(), "Вы добавили " + mobileName + " в корзину", Toast.LENGTH_LONG);
+        toast.show();
+      }
+    };
+    buttonBasket.setOnClickListener(basket);
+
   }
 }
