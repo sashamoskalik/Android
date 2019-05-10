@@ -6,6 +6,8 @@
   <string name="nav_header_desc">Navigation header</string>
   <string name="action_settings">Settings</string>
   <string name="title_activity_login">Sign in</string>
+  <string name="information">Контактная информация</string>
+  <string name="address">Адрес доставки и комментарий</string>
   <string name="garant">Гарантия 12 месяцев.
   по городу - в течение дня (бесплатная), по Беларуси - в течение 2 дней (бесплатная)</string>
 

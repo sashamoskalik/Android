@@ -12,7 +12,7 @@ public class DataBaseCatalog extends SQLiteOpenHelper {
   final String LOG_TAG = "myLogs";
 
   public static final String DATABASE_NAME = "DataCatalog.db";
-  public static final int DATABASE_VERSION = 23;
+  public static final int DATABASE_VERSION = 24;
   public static final String TABLE_NAME = "Catalog";
   public static final String TABLE_FAVORITE = "Favorite";
   public static final String TABLE_BASKET = "Basket";

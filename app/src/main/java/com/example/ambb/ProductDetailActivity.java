@@ -38,7 +38,9 @@ public class ProductDetailActivity extends AppCompatActivity {
     dataBaseCatalog = new DataBaseCatalog(this);
     buttonBasket = (Button) findViewById(R.id.buttonBasket);
 
+
     int mobileId = (Integer) getIntent().getExtras().get(EXTRA_MOBILE_ID);
+
     final SQLiteDatabase db = dataBaseCatalog.getWritableDatabase();
     Cursor cursor = db.query(DataBaseCatalog.TABLE_NAME, null, "ID = ?", new String[]{Integer.toString(mobileId+1)}, null, null, null);
 

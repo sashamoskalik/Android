@@ -100,8 +100,6 @@ public class MainActivity extends AppCompatActivity
     if (id == R.id.nav_personalAccount) {
       Intent intent = new Intent(this, EnterActivity.class);
       startActivity(intent);
-    } else if (id == R.id.nav_order) {
-
     } else if (id == R.id.nav_basket) {
       Intent intent = new Intent(this, BasketActivity.class);
       startActivity(intent);

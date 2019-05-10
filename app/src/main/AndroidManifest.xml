@@ -16,10 +16,17 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="GoogleAppIndexingWarning">
+    <activity android:name=".CompanyActivity"
+      android:label="О компании"
+      android:parentActivityName=".MenuActivity.HelpActivity"></activity>
+    <activity
+      android:name=".OrderActivity"
+      android:label="Оформление заказа"
+      android:parentActivityName=".BasketActivity" />
     <activity
       android:name=".BasketActivity"
       android:label="Корзина"
-      android:parentActivityName=".MainActivity"></activity>
+      android:parentActivityName=".MainActivity" />
     <activity
       android:name=".FABActivity"
       android:label="Сортировка"
@@ -35,7 +42,9 @@
       android:name=".Search.SearchActivity"
       android:label="Поиск"
       android:parentActivityName=".MainActivity" />
-    <activity android:name=".PersonalAccount.PersonalAccountActivity" />
+    <activity android:name=".PersonalAccount.PersonalAccountActivity"
+      android:label="Личный кабинет"
+      android:parentActivityName=".PersonalAccount.EnterActivity"/>
     <activity
       android:name=".PersonalAccount.EnterActivity"
       android:label="Вход"

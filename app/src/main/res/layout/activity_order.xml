@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".OrderActivity">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="15dp">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/information"
+      android:textColor="@color/colorBlack"
+      android:textSize="16sp"/>
+    <EditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:hint="Имя"/>
+    <EditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:hint="E-mail"/>
+    <EditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:hint="Телефон"/>
+  </LinearLayout>
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background="@color/colorBlack"/>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_margin="15dp">
+
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/address"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"/>
+      <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Город"/>
+      <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Адрес"/>
+      <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Комментарий"/>
+    </LinearLayout>
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background="@color/colorBlack"/>
+    <TextView
+      android:id="@+id/summa"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="@color/colorBlack"
+      android:layout_margin="15dp"/>
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background="@color/colorBlack"/>
+    <Button
+      android:id="@+id/buttonOrder"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="@color/colorWhite"
+      android:text="Отправить заказ"
+      android:background="@color/colorPrimary"
+      android:layout_margin="15dp"/>
+  </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

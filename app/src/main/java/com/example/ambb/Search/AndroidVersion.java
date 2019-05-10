@@ -5,6 +5,7 @@ public class AndroidVersion {
   private String name;
   private String color;
   private String price;
+  private int image;
 
   public String getDescription() {
     return description;
@@ -19,6 +20,9 @@ public class AndroidVersion {
   }
   public String getPrice() {
     return price;
+  }
+  public int getImage() {
+    return image;
   }
 
 }

@@ -36,14 +36,6 @@ public class BasketActivity extends AppCompatActivity {
     basketList = (ListView) findViewById(R.id.basketList);
     dataBaseCatalog = new DataBaseCatalog(getApplicationContext());
 
-    FloatingActionButton fab = findViewById(R.id.fab);
-    fab.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-          .setAction("Action", null).show();
-      }
-    });
   }
 
   @Override
@@ -54,7 +46,7 @@ public class BasketActivity extends AppCompatActivity {
     sum = (TextView) findViewById(R.id.sum);
     db = dataBaseCatalog.getReadableDatabase();
 
-    Log.d("FAVORITY","RESUME");
+
     cursor = db.rawQuery("select * from Basket", null);
     String[] from = new String[]{"NAME", "COLOR", "PRICE"};
     int[] to = new int[]{R.id.name, R.id.color, R.id.price};
@@ -70,6 +62,18 @@ public class BasketActivity extends AppCompatActivity {
       Log.d("PRICE", String.valueOf(summa));
     }
     sum.setText("Итого: " + String.valueOf(summa) + " руб.");
+
+    FloatingActionButton fab = findViewById(R.id.fab);
+    final int finalSumma = summa;
+    Log.d("FINALSUMMA", String.valueOf(finalSumma));
+    fab.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(BasketActivity.this, OrderActivity.class);
+        intent.putExtra("sum", finalSumma);
+        startActivity(intent);
+      }
+    });
   }
 
   @Override

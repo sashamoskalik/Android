@@ -9,13 +9,9 @@
       android:icon="@drawable/ic_person_black_24dp"
       android:title="Личный кабинет" />
     <item
-      android:id="@+id/nav_order"
-      android:icon="@drawable/ic_shop_black_24dp"
-      android:title="Мои заказы (в разработке)" />
-    <item
       android:id="@+id/nav_basket"
       android:icon="@drawable/ic_shopping_cart_black_24dp"
-      android:title="Корзина (в разработке)" />
+      android:title="Корзина" />
     <item
       android:id="@+id/nav_laying"
       android:icon="@drawable/ic_star_black_24dp"
