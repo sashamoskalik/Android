@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.print.PrinterId;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.example.ambb.DataBase.DataBaseCatalog;
 public class ProductDetailActivity extends AppCompatActivity {
 
   public static final String EXTRA_MOBILE_ID = "mobileId";
+  public static final String EXTRA_MOBILE_NAME = "mobileName";
   DataBaseCatalog dataBaseCatalog;
   ImageButton imageButton;
   Button buttonBasket;
@@ -40,9 +42,11 @@ public class ProductDetailActivity extends AppCompatActivity {
 
 
     int mobileId = (Integer) getIntent().getExtras().get(EXTRA_MOBILE_ID);
+    String serverNameProduct = (String) getIntent().getExtras().get(EXTRA_MOBILE_NAME);
+    Log.d("SERVERNAME", serverNameProduct);
 
     final SQLiteDatabase db = dataBaseCatalog.getWritableDatabase();
-    Cursor cursor = db.query(DataBaseCatalog.TABLE_NAME, null, "ID = ?", new String[]{Integer.toString(mobileId+1)}, null, null, null);
+    Cursor cursor = db.query(DataBaseCatalog.TABLE_NAME, null, "NAME = ?", new String[]{serverNameProduct}, null, null, null);
 
     if (cursor.moveToFirst()) {
       mobileName = cursor.getString(1);

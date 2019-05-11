@@ -168,9 +168,10 @@ public class MainActivity extends AppCompatActivity
 
         mAdapter.setOnItemClickListener(new DataAdapter.OnItemClickListener() {
           @Override
-          public void onItemClick(int i) {
+          public void onItemClick(int i, String nameProduct) {
             Intent intent = new Intent(MainActivity.this, ProductDetailActivity.class);
             intent.putExtra(ProductDetailActivity.EXTRA_MOBILE_ID, i);
+            intent.putExtra(ProductDetailActivity.EXTRA_MOBILE_NAME, nameProduct);
             startActivity(intent);
 
           }

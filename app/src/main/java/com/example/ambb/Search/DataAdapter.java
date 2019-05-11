@@ -28,7 +28,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
   private OnItemClickListener onItemClickListener;
 
   public interface OnItemClickListener {
-    void onItemClick(int i);
+    void onItemClick(int i, String nameProduct);
   }
 
   public OnItemClickListener getOnItemClickListener() {
@@ -70,7 +70,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
     View.OnClickListener listener = new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        onItemClickListener.onItemClick(i);
+        onItemClickListener.onItemClick(i, mFilteredList.get(i).getName());
       }
     };
     view.setOnClickListener(listener);
