@@ -42,6 +42,7 @@ public class BasketActivity extends AppCompatActivity {
   public void onResume(){
     super.onResume();
     int summa = 0;
+    String name = "";
 
     sum = (TextView) findViewById(R.id.sum);
     db = dataBaseCatalog.getReadableDatabase();
@@ -54,23 +55,34 @@ public class BasketActivity extends AppCompatActivity {
     basketList.setAdapter(simpleCursor);
     if (cursor.moveToFirst()){
       int PriceIndex = cursor.getColumnIndex("PRICE");
+      int NameIndex = cursor.getColumnIndex("NAME");
 
       do {
         summa += cursor.getInt(PriceIndex);
       }
       while (cursor.moveToNext());
+      
+      cursor.moveToFirst();
+      
+      do {
+        name += cursor.getString(NameIndex) + ", ";
+      }
+      while (cursor.moveToNext());
+      Log.d("NAME", name);
       Log.d("PRICE", String.valueOf(summa));
     }
     sum.setText("Итого: " + String.valueOf(summa) + " руб.");
 
     FloatingActionButton fab = findViewById(R.id.fab);
     final int finalSumma = summa;
+    final String finalName = name;
     Log.d("FINALSUMMA", String.valueOf(finalSumma));
     fab.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         Intent intent = new Intent(BasketActivity.this, OrderActivity.class);
         intent.putExtra("sum", finalSumma);
+        intent.putExtra("string", finalName);
         startActivity(intent);
       }
     });

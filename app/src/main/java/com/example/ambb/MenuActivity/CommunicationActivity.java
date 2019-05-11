@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,17 +33,24 @@ public class CommunicationActivity extends AppCompatActivity {
         String topic = topicCommunication.getText().toString();
         String text = textCommunication.getText().toString();
 
-        Intent comment = new Intent(Intent.ACTION_SEND);
-        comment.putExtra(Intent.EXTRA_EMAIL, new String[]{"sashamoskalik@gmail.com"});
-        comment.putExtra(Intent.EXTRA_SUBJECT, topic);
-        comment.putExtra(Intent.EXTRA_TEXT, text);
+        if (topic.equals("") || text.equals("")){
+          Toast toast = Toast.makeText(getApplicationContext(), "Заполните тему или текст",Toast.LENGTH_LONG);
+          toast.show();
+          Log.d("STRING", "TOPIC");
+        }
+        else {
+          Intent comment = new Intent(Intent.ACTION_SEND);
+          comment.putExtra(Intent.EXTRA_EMAIL, new String[]{"sashamoskalik@gmail.com"});
+          comment.putExtra(Intent.EXTRA_SUBJECT, topic);
+          comment.putExtra(Intent.EXTRA_TEXT, text);
 
-        comment.setType("message/rfc822");
+          comment.setType("message/rfc822");
 
-        startActivity(Intent.createChooser(comment, "Choose email: "));
+          startActivity(Intent.createChooser(comment, "Choose email: "));
 
-        Toast toast = Toast.makeText(getApplicationContext(), "Спасибо, вы сделали приложение лучше!",Toast.LENGTH_LONG);
-        toast.show();
+          Toast toast = Toast.makeText(getApplicationContext(), "Спасибо, вы сделали приложение лучше!",Toast.LENGTH_LONG);
+          toast.show();
+        }
 
       }
     });
