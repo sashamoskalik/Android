@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 
 public interface RequestInterface {
 
-  @GET("bins/65gd2")
+  @GET("bins/103mem")
   Call<JSONResponse> getJSON();
 }
 

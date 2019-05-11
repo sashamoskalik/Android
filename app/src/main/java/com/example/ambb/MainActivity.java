@@ -3,6 +3,8 @@ package com.example.ambb;
   import android.content.Intent;
   import android.os.Bundle;
   import android.support.design.widget.FloatingActionButton;
+  import android.support.v7.widget.LinearLayoutManager;
+  import android.support.v7.widget.RecyclerView;
   import android.util.Log;
   import android.view.View;
   import android.support.design.widget.NavigationView;
@@ -20,12 +22,30 @@ package com.example.ambb;
   import com.example.ambb.MenuActivity.HelpActivity;
   import com.example.ambb.MenuActivity.PersonalSaleActivity;
   import com.example.ambb.PersonalAccount.EnterActivity;
+  import com.example.ambb.Search.AndroidVersion;
+  import com.example.ambb.Search.DataAdapter;
+  import com.example.ambb.Search.JSONResponse;
+  import com.example.ambb.Search.RequestInterface;
   import com.example.ambb.Search.SearchActivity;
+
+  import java.util.ArrayList;
+  import java.util.Arrays;
+
+  import retrofit2.Call;
+  import retrofit2.Callback;
+  import retrofit2.Response;
+  import retrofit2.Retrofit;
+  import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity
   implements NavigationView.OnNavigationItemSelectedListener {
 
   DBHelper dbHelper;
+
+  public static final String BASE_URL = "https://api.myjson.com";
+  private RecyclerView mRecyclerView;
+  private ArrayList<AndroidVersion> mArrayList;
+  private DataAdapter mAdapter;
 
 
   @Override
@@ -35,9 +55,6 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
-    dbHelper = new DBHelper(this);
-
-
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
       this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -46,7 +63,6 @@ public class MainActivity extends AppCompatActivity
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
-
     FloatingActionButton fab = findViewById(R.id.fab);
     fab.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -56,6 +72,8 @@ public class MainActivity extends AppCompatActivity
       }
     });
 
+    initViews();
+    loadJSON();
   }
 
   @Override
@@ -124,6 +142,46 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;
+  }
+
+  private void initViews(){
+    mRecyclerView = (RecyclerView)findViewById(R.id.card_recycler_view);
+    mRecyclerView.setHasFixedSize(true);
+    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+    mRecyclerView.setLayoutManager(layoutManager);
+  }
+  private void loadJSON(){
+    Retrofit retrofit = new Retrofit.Builder()
+      .baseUrl(BASE_URL)
+      .addConverterFactory(GsonConverterFactory.create())
+      .build();
+    RequestInterface request = retrofit.create(RequestInterface.class);
+    Call<JSONResponse> call = request.getJSON();
+    call.enqueue(new Callback<JSONResponse>() {
+      @Override
+      public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+
+        JSONResponse jsonResponse = response.body();
+        mArrayList = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
+        mAdapter = new DataAdapter(MainActivity.this ,mArrayList);
+        mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClickListener(new DataAdapter.OnItemClickListener() {
+          @Override
+          public void onItemClick(int i) {
+            Intent intent = new Intent(MainActivity.this, ProductDetailActivity.class);
+            intent.putExtra(ProductDetailActivity.EXTRA_MOBILE_ID, i);
+            startActivity(intent);
+
+          }
+        });
+      }
+
+      @Override
+      public void onFailure(Call<JSONResponse> call, Throwable t) {
+        Log.d("Error",t.getMessage());
+      }
+    });
   }
 
 }

@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.example.ambb.MainActivity;
+import com.example.ambb.ProductDetailActivity;
 import com.example.ambb.R;
 
 import java.util.ArrayList;
@@ -61,8 +63,18 @@ public class SearchActivity extends AppCompatActivity {
 
         JSONResponse jsonResponse = response.body();
         mArrayList = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
-        mAdapter = new DataAdapter(mArrayList);
+        mAdapter = new DataAdapter(SearchActivity.this ,mArrayList);
         mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClickListener(new DataAdapter.OnItemClickListener() {
+          @Override
+          public void onItemClick(int i) {
+            Intent intent = new Intent(SearchActivity.this, ProductDetailActivity.class);
+            intent.putExtra(ProductDetailActivity.EXTRA_MOBILE_ID, i);
+            startActivity(intent);
+
+          }
+        });
       }
 
       @Override

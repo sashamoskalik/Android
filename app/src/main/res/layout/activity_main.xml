@@ -10,15 +10,6 @@
   tools:context="com.learn2crack.recyclerviewsearch.MainActivity">
 
 
-  <fragment
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment1"
-    android:name="com.example.ambb.ProductFragment"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:ignore="MissingConstraints" />
-
-
   <include
     layout="@layout/app_bar_main"
     android:layout_width="match_parent"

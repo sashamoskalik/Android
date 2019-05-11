@@ -10,6 +10,7 @@
   <string name="address">Адрес доставки и комментарий</string>
   <string name="garant">Гарантия 12 месяцев.
   по городу - в течение дня (бесплатная), по Беларуси - в течение 2 дней (бесплатная)</string>
+  <string name="url">http://image.tmdb.org/t/p/w500%1$s</string>
 
   <!-- TODO: Remove or change this placeholder text -->
   <string name="hello_blank_fragment">Hello blank fragment</string>

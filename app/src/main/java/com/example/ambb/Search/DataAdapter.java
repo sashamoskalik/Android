@@ -1,6 +1,7 @@
 package com.example.ambb.Search;
 
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
@@ -14,37 +15,65 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.ambb.Adapter;
 import com.example.ambb.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> implements Filterable {
   private ArrayList<AndroidVersion> mArrayList;
   private ArrayList<AndroidVersion> mFilteredList;
+  private Context mContext;
+  private OnItemClickListener onItemClickListener;
 
-  public DataAdapter(ArrayList<AndroidVersion> arrayList) {
+  public interface OnItemClickListener {
+    void onItemClick(int i);
+  }
+
+  public OnItemClickListener getOnItemClickListener() {
+    return onItemClickListener;
+  }
+
+  public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+    this.onItemClickListener = onItemClickListener;
+  }
+
+  public DataAdapter(Context context ,ArrayList<AndroidVersion> arrayList) {
     mArrayList = arrayList;
     mFilteredList = arrayList;
+    this.mContext = context;
   }
 
   @Override
-  public DataAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-    View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_product, viewGroup, false);
+  public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.server_item, viewGroup, false);
     return new ViewHolder(view);
   }
 
   @Override
-  public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, int i) {
+  public void onBindViewHolder(ViewHolder viewHolder, final int i) {
 
-    View view = viewHolder.cardView;
+    View view = viewHolder.itemView;
     viewHolder.tv_name.setText(mFilteredList.get(i).getName());
     viewHolder.tv_color.setText(mFilteredList.get(i).getColor());
     viewHolder.tv_description.setText(mFilteredList.get(i).getDescription());
-    viewHolder.tv_price.setText(mFilteredList.get(i).getPrice());
-    Drawable drawable = (Drawable) ContextCompat.getDrawable(view.getContext(), mFilteredList.get(i).getImage());
-    viewHolder.tv_image.setImageDrawable(drawable);
-    viewHolder.tv_image.setContentDescription(mFilteredList.get(i).getName());
+    viewHolder.tv_price.setText("от " + mFilteredList.get(i).getPrice() + " руб.");
+    Picasso.with(mContext)
+      .load(mFilteredList.get(i).getImage())
+      .placeholder(R.drawable.iphone10)
+      .error(R.drawable.p10)
+      .into(viewHolder.tv_image);
     Log.d("Holder", "holder" + viewHolder.tv_name.getText().toString());
+
+
+    View.OnClickListener listener = new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        onItemClickListener.onItemClick(i);
+      }
+    };
+    view.setOnClickListener(listener);
   }
 
   @Override
