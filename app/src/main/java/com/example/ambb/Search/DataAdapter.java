@@ -22,8 +22,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> implements Filterable {
-  private ArrayList<AndroidVersion> mArrayList;
-  private ArrayList<AndroidVersion> mFilteredList;
+  private ArrayList<Mobile> mArrayList;
+  private ArrayList<Mobile> mFilteredList;
   private Context mContext;
   private OnItemClickListener onItemClickListener;
 
@@ -39,7 +39,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
     this.onItemClickListener = onItemClickListener;
   }
 
-  public DataAdapter(Context context ,ArrayList<AndroidVersion> arrayList) {
+  public DataAdapter(Context context ,ArrayList<Mobile> arrayList) {
     mArrayList = arrayList;
     mFilteredList = arrayList;
     this.mContext = context;
@@ -95,13 +95,13 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
           mFilteredList = mArrayList;
         } else {
 
-          ArrayList<AndroidVersion> filteredList = new ArrayList<>();
+          ArrayList<Mobile> filteredList = new ArrayList<>();
 
-          for (AndroidVersion androidVersion : mArrayList) {
+          for (Mobile mobile : mArrayList) {
 
-            if (androidVersion.getDescription().toLowerCase().contains(charString) || androidVersion.getName().toLowerCase().contains(charString) || androidVersion.getColor().toLowerCase().contains(charString) || androidVersion.getPrice().toLowerCase().contains(charString)) {
+            if (mobile.getDescription().toLowerCase().contains(charString) || mobile.getName().toLowerCase().contains(charString) || mobile.getColor().toLowerCase().contains(charString) ) {
 
-              filteredList.add(androidVersion);
+              filteredList.add(mobile);
             }
           }
 
@@ -115,7 +115,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
 
       @Override
       protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-        mFilteredList = (ArrayList<AndroidVersion>) filterResults.values;
+        mFilteredList = (ArrayList<Mobile>) filterResults.values;
         notifyDataSetChanged();
       }
     };

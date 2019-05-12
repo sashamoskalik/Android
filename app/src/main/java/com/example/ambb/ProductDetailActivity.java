@@ -41,7 +41,6 @@ public class ProductDetailActivity extends AppCompatActivity {
     buttonBasket = (Button) findViewById(R.id.buttonBasket);
 
 
-    int mobileId = (Integer) getIntent().getExtras().get(EXTRA_MOBILE_ID);
     String serverNameProduct = (String) getIntent().getExtras().get(EXTRA_MOBILE_NAME);
     Log.d("SERVERNAME", serverNameProduct);
 

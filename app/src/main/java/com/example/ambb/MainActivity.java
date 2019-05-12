@@ -22,14 +22,16 @@ package com.example.ambb;
   import com.example.ambb.MenuActivity.HelpActivity;
   import com.example.ambb.MenuActivity.PersonalSaleActivity;
   import com.example.ambb.PersonalAccount.EnterActivity;
-  import com.example.ambb.Search.AndroidVersion;
+  import com.example.ambb.Search.Mobile;
   import com.example.ambb.Search.DataAdapter;
   import com.example.ambb.Search.JSONResponse;
+  import com.example.ambb.Search.Mobile;
   import com.example.ambb.Search.RequestInterface;
   import com.example.ambb.Search.SearchActivity;
 
   import java.util.ArrayList;
   import java.util.Arrays;
+  import java.util.Collections;
 
   import retrofit2.Call;
   import retrofit2.Callback;
@@ -44,9 +46,13 @@ public class MainActivity extends AppCompatActivity
 
   public static final String BASE_URL = "https://api.myjson.com";
   private RecyclerView mRecyclerView;
-  private ArrayList<AndroidVersion> mArrayList;
+  private ArrayList<Mobile> mArrayList;
   private DataAdapter mAdapter;
+  int sortCounter = 0;
 
+  public ArrayList<Mobile> getmArrayList() {
+    return mArrayList;
+  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -161,8 +167,20 @@ public class MainActivity extends AppCompatActivity
       @Override
       public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+          sortCounter = extras.getInt("sortCounter");
+        }
         JSONResponse jsonResponse = response.body();
-        mArrayList = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
+        mArrayList = new ArrayList<>(Arrays.asList(jsonResponse.getMobiles()));
+        Log.d("SIZE", String.valueOf(mArrayList.size()));
+        Log.d("SORTCOUNTER", String.valueOf(sortCounter));
+        if (sortCounter == 2){
+          Collections.sort(getmArrayList(), new CompareMobileUP());
+        }
+        if (sortCounter == 3){
+          Collections.sort(getmArrayList(), new CompareMobileDown());
+        }
         mAdapter = new DataAdapter(MainActivity.this ,mArrayList);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -173,7 +191,6 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra(ProductDetailActivity.EXTRA_MOBILE_ID, i);
             intent.putExtra(ProductDetailActivity.EXTRA_MOBILE_NAME, nameProduct);
             startActivity(intent);
-
           }
         });
       }

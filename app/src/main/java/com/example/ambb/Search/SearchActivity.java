@@ -30,7 +30,7 @@ public class SearchActivity extends AppCompatActivity {
 
   public static final String BASE_URL = "https://api.myjson.com";
   private RecyclerView mRecyclerView;
-  private ArrayList<AndroidVersion> mArrayList;
+  private ArrayList<Mobile> mArrayList;
   private DataAdapter mAdapter;
 
   @Override
@@ -62,7 +62,7 @@ public class SearchActivity extends AppCompatActivity {
       public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
         JSONResponse jsonResponse = response.body();
-        mArrayList = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
+        mArrayList = new ArrayList<>(Arrays.asList(jsonResponse.getMobiles()));
         mAdapter = new DataAdapter(SearchActivity.this ,mArrayList);
         mRecyclerView.setAdapter(mAdapter);
 

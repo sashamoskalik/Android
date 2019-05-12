@@ -1,12 +1,12 @@
 package com.example.ambb.Search;
 
-import com.example.ambb.Search.AndroidVersion;
+import com.example.ambb.Search.Mobile;
 
 public class JSONResponse {
-  private AndroidVersion[] android;
+  private Mobile[] mobiles;
 
-  public AndroidVersion[] getAndroid() {
-    return android;
+  public Mobile[] getMobiles() {
+    return mobiles;
   }
 }
 

@@ -1,10 +1,10 @@
 package com.example.ambb.Search;
 
-public class AndroidVersion {
+public class Mobile {
   private String description;
   private String name;
   private String color;
-  private String price;
+  private int price;
   private String image;
 
   public String getDescription() {
@@ -18,7 +18,7 @@ public class AndroidVersion {
   public String getColor() {
     return color;
   }
-  public String getPrice() {
+  public int getPrice() {
     return price;
   }
 
