@@ -61,8 +61,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
     viewHolder.tv_price.setText("от " + mFilteredList.get(i).getPrice() + " руб.");
     Picasso.with(mContext)
       .load(mFilteredList.get(i).getImage())
-      .placeholder(R.drawable.iphone10)
-      .error(R.drawable.p10)
+      //.placeholder(R.drawable.p10)
+      .error(R.drawable.ambb)
       .into(viewHolder.tv_image);
     Log.d("Holder", "holder" + viewHolder.tv_name.getText().toString());
 

@@ -30,7 +30,13 @@ public class ProductDetailActivity extends AppCompatActivity {
   private String mobileName;
   private String mobileColor;
   private String mobileDescription;
+  private String mobilePlatform;
+  private String mobileProcessor;
   private int mobilePrice;
+  private int mobileRate;
+  private int mobileKernel;
+  private int mobileRaz;
+  private int mobileTech;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,12 @@ public class ProductDetailActivity extends AppCompatActivity {
       mobileDescription = cursor.getString(3);
       mobilePrice = cursor.getInt(4);
       int mobilePicture = cursor.getInt(6);
+      mobilePlatform = cursor.getString(7);
+      mobileProcessor = cursor.getString(8);
+      mobileRate = cursor.getInt(9);
+      mobileKernel = cursor.getInt(10);
+      mobileRaz = cursor.getInt(11);
+      mobileTech = cursor.getInt(12);
 
       TextView name = (TextView) findViewById(R.id.name_detail);
       name.setText(mobileName);
@@ -63,6 +75,18 @@ public class ProductDetailActivity extends AppCompatActivity {
       picture.setContentDescription(mobileName);
       TextView description = (TextView) findViewById(R.id.description_detail);
       description.setText(mobileDescription);
+      TextView platform = (TextView) findViewById(R.id.platform);
+      platform.setText(mobilePlatform);
+      TextView processor = (TextView) findViewById(R.id.processor);
+      processor.setText(mobileProcessor);
+      TextView rate = (TextView) findViewById(R.id.rate);
+      rate.setText(String.valueOf(mobileRate));
+      TextView kernel = (TextView) findViewById(R.id.kernel);
+      kernel.setText(String.valueOf(mobileKernel));
+      TextView raz = (TextView) findViewById(R.id.raz);
+      raz.setText(String.valueOf(mobileRaz));
+      TextView tech = (TextView) findViewById(R.id.techprocess);
+      tech.setText(String.valueOf(mobileTech));
       //TextView price = (TextView) findViewById(R.id.price_detail);
       //price.setText(mobilePrice);
 
