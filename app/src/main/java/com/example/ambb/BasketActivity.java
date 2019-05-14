@@ -80,10 +80,16 @@ public class BasketActivity extends AppCompatActivity {
     fab.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(BasketActivity.this, OrderActivity.class);
-        intent.putExtra("sum", finalSumma);
-        intent.putExtra("string", finalName);
-        startActivity(intent);
+        if (finalSumma == 0){
+          Toast toast = Toast.makeText(getApplicationContext(), "Пустая корзина", Toast.LENGTH_LONG);
+          toast.show();
+        }
+        else {
+          Intent intent = new Intent(BasketActivity.this, OrderActivity.class);
+          intent.putExtra("sum", finalSumma);
+          intent.putExtra("string", finalName);
+          startActivity(intent);
+        }
       }
     });
   }
